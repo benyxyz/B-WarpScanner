@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WarpScanner - دریافت کانفیگ وارپ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <h1>WarpScanner</h1>
+            </div>
+            <p class="subtitle">دریافت سریع و آسان کانفیگ وایرگارد (WARP)</p>
+        </header>
+
+        <main>
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-bolt"></i> دریافت کانفیگ وایرگارد</h2>
+                </div>
+                <div class="card-body">
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="config-type-1" name="config-type" value="standard" checked>
+                            <label for="config-type-1">کانفیگ استاندارد</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="config-type-2" name="config-type" value="warp-plus">
+                            <label for="config-type-2">کانفیگ WARP+</label>
+                        </div>
+                    </div>
+
+                    <div id="warp-plus-section" class="hidden">
+                        <div class="input-group">
+                            <label for="warp-plus-key">کلید WARP+ (اختیاری):</label>
+                            <input type="text" id="warp-plus-key" placeholder="کلید WARP+ خود را وارد کنید">
+                        </div>
+                    </div>
+
+                    <div class="button-container">
+                        <button id="generate-config" class="btn primary">
+                            <i class="fas fa-magic"></i> دریافت کانفیگ
+                            <span class="btn-glow"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="result-section" class="card hidden">
+                <div class="card-header">
+                    <h2><i class="fas fa-check-circle"></i> کانفیگ شما آماده است</h2>
+                </div>
+                <div class="card-body">
+                    <div class="config-info">
+                        <div class="info-item">
+                            <span class="label">آی‌پی:</span>
+                            <span id="config-ip" class="value">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">سرعت:</span>
+                            <span id="config-speed" class="value">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">پینگ:</span>
+                            <span id="config-ping" class="value">-</span>
+                        </div>
+                    </div>
+
+                    <div class="config-content">
+                        <pre id="config-text"></pre>
+                        <div class="copy-btn" id="copy-config">
+                            <i class="fas fa-copy"></i>
+                        </div>
+                    </div>
+
+                    <div class="button-container">
+                        <button id="download-config" class="btn secondary">
+                            <i class="fas fa-download"></i> دانلود فایل کانفیگ
+                        </button>
+                        <button id="download-csv" class="btn secondary">
+                            <i class="fas fa-file-csv"></i> دانلود CSV
+                        </button>
+                        <button id="generate-again" class="btn outline">
+                            <i class="fas fa-redo"></i> دریافت کانفیگ جدید
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="loading-section" class="card hidden">
+                <div class="card-body">
+                    <div class="loader">
+                        <div class="scanner">
+                            <div class="scan-line"></div>
+                        </div>
+                    </div>
+                    <p class="loading-text">در حال اسکن و یافتن بهترین سرور...</p>
+                </div>
+            </div>
+        </main>
+
+        <section class="features">
+            <h2>ویژگی‌های WarpScanner</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>رمزنگاری پیشرفته</h3>
+                    <p>محافظت از داده‌های شما با رمزنگاری قدرتمند WireGuard</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <h3>سرعت بالا</h3>
+                    <p>اتصال سریع و بدون وقفه با سرورهای بهینه‌سازی شده</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-lock"></i></div>
+                    <h3>امنیت</h3>
+                    <p>حفظ حریم خصوصی شما با تکنولوژی پیشرفته وارپ</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-sync"></i></div>
+                    <h3>به‌روزرسانی خودکار</h3>
+                    <p>همیشه از آخرین کانفیگ‌های بهینه استفاده کنید</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>WarpScanner</h2>
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com" target="_blank">
+                        <i class="fab fa-github"></i> گیت‌هاب
+                    </a>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© ۱۴۰۳ WarpScanner - تمام حقوق محفوظ است</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
